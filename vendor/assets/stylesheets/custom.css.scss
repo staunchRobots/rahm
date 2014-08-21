@@ -1,0 +1,54 @@
+//*= require_tree .
+//*= require twitter-bootstrap-static/bootstrap
+
+#page_container {
+  width: 100%;
+}
+
+.actions a img {
+  padding: 0;
+}
+
+
+.location {
+  padding: 0em 1em 0em 1em;  
+}
+
+.form-group {
+  margin-bottom: 0em;
+}
+
+.btn-group {
+  margin: 0.1em;
+}
+
+.previewMap {
+  padding: 0em 1em 0em 1em;
+}
+
+.form-control.select {
+  width: auto;
+  display: inline;
+}
+
+textarea.visual_editor {
+  height: 10em;
+}
+
+.form-group > label {
+  margin-top: 5px;
+}
+
+.fix-nav {
+  width: 970px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-group .btn {
+  margin-top: 2em;
+}
+
+.wym_skin_refinery {
+  width: 944px !important;
+}
