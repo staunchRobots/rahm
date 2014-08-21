@@ -8,6 +8,8 @@ group :development, :test do
   gem 'sqlite3'
 end
 # Use SCSS for stylesheets
+
+gem "twitter-bootstrap-rails"
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -55,3 +57,5 @@ gem 'refinerycms-wymeditor', ['~> 1.0', '>= 1.0.0']
 gem 'seo_meta', github: 'parndt/seo_meta', branch: 'master'
 
 gem 'paper_trail', github: 'airblade/paper_trail', branch: 'master'
+
+gem 'refinerycms-events', path: 'vendor/extensions'

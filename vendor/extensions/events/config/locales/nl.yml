@@ -1,0 +1,52 @@
+nl:
+  refinery:
+    plugins:
+      events:
+        title: Events
+    events:
+      admin:
+        events:
+          actions:
+            create_new: Nieuwe Event toevoegen
+            reorder: De volgorde van de Events wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Event-volgorde
+          records:
+            title: Events
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Events. Druk op 'Nieuwe Event toevoegen' om de eerste toe te voegen.
+          event:
+            view_live_html: Deze event op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            edit: Bewerk deze event
+            delete: Deze event definitief verwijderen
+      events:
+        show:
+          other: Andere Events
+  activerecord:
+    attributes:
+      'refinery/events/event':
+        title: Title
+        description: Description
+        short_description: Short Description
+        event_category_id: Event Category
+        poster: Poster
+        background_image: Background Image
+        time_start: Time Start
+        time_end: Time End
+        date: Date
+        end_date: End Date
+        street_address: Street Address
+        address_description: Address Description
+        zip: Zip
+        state: State
+        city: City
+        telephone: Telephone
+        email: Email
+        organizer_name: Organizer Name
+        has_signup: Has Signup
+        limit: Limit
+        email_subject: Email Subject
+        email_body: Email Body
+        is_published: Is Published
+        publish_date: Publish Date
+        publish_time: Publish Time
+        invite_only: Invite Only
