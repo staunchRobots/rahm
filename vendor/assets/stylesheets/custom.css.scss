@@ -1,0 +1,73 @@
+//*= require_tree .
+//*= require twitter-bootstrap-static/bootstrap
+//*= require twitter-bootstrap-static/fontawesome
+
+#page_container {
+  width: 100%;
+}
+
+.actions a img {
+  padding: 0;
+}
+
+.container{
+  width: 72em !important
+}
+
+.control-group {
+  margin-bottom: 0em;
+  input {
+    width: 98% !important;
+  }
+}
+
+.location {
+  margin-left: 0;
+  margin-top: 1em;
+  padding: 0em 1em 0em 1em;
+}
+
+.first{
+  margin-left: 0 !important;
+}
+
+.btn-group {
+  margin: 0.1em;
+}
+
+.previewMap {
+  padding: 0em 1em 0em 1em;
+}
+
+.form-control.select {
+  width: auto;
+  display: inline;
+}
+
+textarea.visual_editor {
+  height: 10em;
+}
+
+.form-group > label {
+  margin-top: 5px;
+}
+
+.fix-nav {
+  width: 970px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wym_skin_refinery {
+  width: 944px !important;
+}
+
+.map {
+  height: 32em
+}
+
+#content {
+  .field, .form-actions{
+    width: 90%;
+  }
+}

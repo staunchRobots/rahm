@@ -1,0 +1,11 @@
+<% content_for :body do %>
+  <ul id="event_categories">
+    <% @event_categories.each do |event_category| %>
+      <li>
+        <%= link_to event_category.name, refinery.events_event_category_path(event_category) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= render '/refinery/content_page' %>
