@@ -1,5 +1,6 @@
 //*= require_tree .
 //*= require twitter-bootstrap-static/bootstrap
+//*= require twitter-bootstrap-static/fontawesome
 
 #page_container {
   width: 100%;
@@ -9,13 +10,25 @@
   padding: 0;
 }
 
-
-.location {
-  padding: 0em 1em 0em 1em;  
+.container{
+  width: 72em !important
 }
 
-.form-group {
+.control-group {
   margin-bottom: 0em;
+  input {
+    width: 98% !important;
+  }
+}
+
+.location {
+  margin-left: 0;
+  margin-top: 1em;
+  padding: 0em 1em 0em 1em;
+}
+
+.first{
+  margin-left: 0 !important;
 }
 
 .btn-group {
@@ -51,4 +64,8 @@ textarea.visual_editor {
 
 .wym_skin_refinery {
   width: 944px !important;
+}
+
+.map {
+  height: 32em
 }

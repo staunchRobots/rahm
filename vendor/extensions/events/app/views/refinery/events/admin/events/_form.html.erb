@@ -1,143 +1,195 @@
-<%= form_for [refinery, :events_admin, @event] do |f| -%>
-  <%= render '/refinery/admin/error_messages',
-              :object => @event,
-              :include_object_name => true %>
+<div class="container">
+  <%= form_for [refinery, :events_admin, @event] do |f| -%>
+    <%= render '/refinery/admin/error_messages',
+                :object => @event,
+                :include_object_name => true %>
 
-  <div class='field'>
-    <%= f.label :title -%>
-    <%= f.text_field :title, :class => 'larger widest' -%>
-  </div>
+    <div id="event_details">
+      <div class='control-group'>
+        <%= f.label :title -%>
+        <%= f.text_field :title, :class => 'controls' -%>
+      </div>
 
-  <div class='field'>
-    <%= render '/refinery/admin/wysiwyg',
-                :f => f,
-                :fields => [:description, :short_description, :email_body],
-                :object => "events/event" -%>
-  </div>
+      <div class='control-group'>
+        <%= render '/refinery/admin/wysiwyg',
+                    :f => f,
+                    :fields => [:description, :short_description],
+                    :object => "events/event" -%>
+      </div>
+      </br>
 
-  <div class='field'>
-    <%= f.label :event_category_id -%>
-    <%= f.number_field :event_category_id -%>
-  </div>
+      <ul class="nav nav-tabs fix-nav">
+        <li class="active"><a href="#poster" data-toggle="tab">Poster</a></li>
+        <li><a href="#background_image" data-toggle="tab">Background</a></li>
+      </ul>
+      <div class="row-fluid">
+        <div class="tab-content span12">
+          <div id="poster" class="tab-pane fade in active">
+            <div class='form-group'>
+              <%= f.label :poster -%>
+              <%= render '/refinery/admin/image_picker',
+                         :f => f,
+                         :field => :poster_id,
+                         :image => @event.poster,
+                         :toggle_image_display => false -%>
+            </div>
+          </div>
+          <div id="background_image" class="tab-pane fade in">
+            <div class='form-group'>
+              <%= f.label :background_image -%>
+              <%= render '/refinery/admin/image_picker',
+                         :f => f,
+                         :field => :background_image_id,
+                         :image => @event.background_image,
+                         :toggle_image_display => false -%>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <div class='field'>
-    <%= f.label :poster -%>
-    <%= render '/refinery/admin/image_picker',
-               :f => f,
-               :field => :poster_id,
-               :image => @event.poster,
-               :toggle_image_display => false -%>
-  </div>
+      <div class="row-fluid">
+        <div class="span6 location">
+          <h1>Custom Locations</h1>
+          <div class='control-group'>
+            <%= f.label :street_address -%>
+            <%= f.text_field :street_address -%>
+          </div>
+          <div class='control-group'>
+            <%= f.label :address_description -%>
+            <%= f.text_field :address_description -%>
+          </div>
+          <div class='control-group'>
+            <%= f.label :city -%>
+            <%= f.text_field :city -%>
+          </div>
+          <div class="row-fluid">
+            <div class='span6 control-group'>
+              <%= f.label :zip -%>
+              <%= f.text_field :zip -%>
+            </div>
+            <div class='span6 control-group'>
+              <%= f.label :state -%>
+              <%= f.text_field :state -%>
+            </div>
+          </div>
+        </div>
 
-  <div class='field'>
-    <%= f.label :background_image -%>
-    <%= render '/refinery/admin/image_picker',
-               :f => f,
-               :field => :background_image_id,
-               :image => @event.background_image,
-               :toggle_image_display => false -%>
-  </div>
+        <div class="map span6">
+          <h1>map here</h1>
+        </div>  
+      </div>
 
-  <div class='field'>
-    <%= f.label :time_start -%>
-    <%= f.time_select :time_start -%>
-  </div>
+      <div class="row-fluid datetimepick">
+        <h1>Date and Time</h1>
+        <div class="span3 first">
+          <div class='control-group'>
+            <%= f.label :date -%>
+            <%= f.text_field :date, :class => 'date start' -%>
+          </div>
+        </div>
+        <div class="span3">
+          <div class='control-group'>
+            <%= f.label :time_start -%>
+            <%= f.text_field :time_start, :class => 'time start'-%>
+          </div>
+        </div>
+        <div class="span3">
+          <div class='control-group'>
+            <%= f.label :end_date -%>
+            <%= f.text_field :end_date, :class => 'date end'-%>
+          </div>  
+        </div> 
+        <div class="span3">
+          <div class='control-group'>
+            <%= f.label :time_end -%>
+            <%= f.text_field :time_end, :class => 'time end'-%>
+          </div>
+        </div>
+      </div>
 
-  <div class='field'>
-    <%= f.label :time_end -%>
-    <%= f.time_select :time_end -%>
-  </div>
+      
 
-  <div class='field'>
-    <%= f.label :date -%>
-    <%= f.date_select :date -%>
-  </div>
+      <div class="row-fluid">
+        <div class="span6 organizer">
+          <h1>Organizer</h1>
+          <div class='control-group'>
+            <%= f.label :telephone -%>
+            <%= f.text_field :telephone -%>
+          </div>
+          <div class='control-group'>
+            <%= f.label :email -%>
+            <%= f.text_field :email -%>
+          </div>
+          <div class='control-group'>
+            <%= f.label :organizer_name -%>
+            <%= f.text_field :organizer_name -%>
+          </div>
+        </div>
 
-  <div class='field'>
-    <%= f.label :end_date -%>
-    <%= f.date_select :end_date -%>
-  </div>
+        <div class="span6 datetimepick">
+          <h1>Aditional Settings</h1>
+          <div class='span6 control-group first'>
+            <%= f.label :publish_date -%>
+            <%= f.text_field :publish_date, :class => 'time'-%>
+          </div>
+          <div class='span6 control-group'>
+            <%= f.label :publish_time -%>
+            <%= f.text_field :publish_time, :class => 'time' -%>
+          </div>
+          <div class="span12">
+            <div class='control-group'>
+              <%= f.label :is_published -%>
+              <%= f.check_box :is_published, :checked => @event[:is_published] -%>
+            </div>
+          </div>  
+        </div>
+      </div>
+      
+      <div class="row-fluid">
+        <div class='control-group'>
+          <%= f.label :has_signup -%>
+          <%= f.check_box :has_signup, :checked => @event[:has_signup] -%>
+        </div>
+        <div class='span2 control-group first'>
+          <%= f.label :limit -%>
+          <%= f.number_field :limit -%>
+        </div>
+      </div>
 
-  <div class='field'>
-    <%= f.label :street_address -%>
-    <%= f.text_field :street_address -%>
-  </div>
+      <div class="row-fluid">
 
-  <div class='field'>
-    <%= f.label :address_description -%>
-    <%= f.text_field :address_description -%>
-  </div>
+        <div class='span6 control-group'>
+          <%= f.label :email_subject -%>
+          <%= f.text_field :email_subject -%>
+        </div>
 
-  <div class='field'>
-    <%= f.label :zip -%>
-    <%= f.text_field :zip -%>
-  </div>
+        <div class='span6 control-group'>
+          <%= f.label :email_body -%>
+          <%= f.text_area :email_body -%>
+      </div>
 
-  <div class='field'>
-    <%= f.label :state -%>
-    <%= f.text_field :state -%>
-  </div>
+      <div class='control-group'>
+        <%= f.label :invite_only -%>
+        <%= f.check_box :invite_only, :checked => @event[:invite_only] -%>
+      </div>
 
-  <div class='field'>
-    <%= f.label :city -%>
-    <%= f.text_field :city -%>
-  </div>
+      <div class="row-fluid">
+        <div class='span4 control-group'>
+          <%= f.label :event_category_id -%>
+          <%= f.number_field :event_category_id -%>
+        </div>
+      </div>
+      
+    </div>
 
-  <div class='field'>
-    <%= f.label :telephone -%>
-    <%= f.text_field :telephone -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :email -%>
-    <%= f.text_field :email -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :organizer_name -%>
-    <%= f.text_field :organizer_name -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :has_signup -%>
-    <%= f.check_box :has_signup, :checked => @event[:has_signup] -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :limit -%>
-    <%= f.number_field :limit -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :email_subject -%>
-    <%= f.text_field :email_subject -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :is_published -%>
-    <%= f.check_box :is_published, :checked => @event[:is_published] -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :publish_date -%>
-    <%= f.date_select :publish_date -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :publish_time -%>
-    <%= f.time_select :publish_time -%>
-  </div>
-
-  <div class='field'>
-    <%= f.label :invite_only -%>
-    <%= f.check_box :invite_only, :checked => @event[:invite_only] -%>
-  </div>
-
-  <%= render '/refinery/admin/form_actions', :f => f,
-             :continue_editing => false,
-             :delete_title => t('delete', :scope => 'refinery.events.admin.events.event'),
-             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @event.title) -%>
-<% end -%>
+    
+    <%= render '/refinery/admin/form_actions', :f => f,
+               :continue_editing => false,
+               :delete_title => t('delete', :scope => 'refinery.events.admin.events.event'),
+               :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @event.title) -%>
+  <% end -%>
+  
+</div>
 
 <% content_for :javascripts do -%>
   <script>
