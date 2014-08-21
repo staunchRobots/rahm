@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140821205627) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "refinery_events", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -51,9 +54,6 @@ ActiveRecord::Schema.define(version: 20140821205627) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
 
   create_table "refinery_images", force: true do |t|
     t.string   "image_mime_type"
