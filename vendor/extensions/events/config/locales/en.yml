@@ -1,0 +1,52 @@
+en:
+  refinery:
+    plugins:
+      events:
+        title: Events
+    events:
+      admin:
+        events:
+          actions:
+            create_new: Add New Event
+            reorder: Reorder Events
+            reorder_done: Done Reordering Events
+          records:
+            title: Events
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Events yet. Click "Add New Event" to add your first event.
+          event:
+            view_live_html: View this event live <br/><em>(opens in a new window)</em>
+            edit: Edit this event
+            delete: Remove this event forever
+      events:
+        show:
+          other: Other Events
+  activerecord:
+    attributes:
+      'refinery/events/event':
+        title: Title
+        description: Description
+        short_description: Short Description
+        event_category_id: Event Category
+        poster: Poster
+        background_image: Background Image
+        time_start: Time Start
+        time_end: Time End
+        date: Date
+        end_date: End Date
+        street_address: Street Address
+        address_description: Address Description
+        zip: Zip
+        state: State
+        city: City
+        telephone: Telephone
+        email: Email
+        organizer_name: Organizer Name
+        has_signup: Has Signup
+        limit: Limit
+        email_subject: Email Subject
+        email_body: Email Body
+        is_published: Is Published
+        publish_date: Publish Date
+        publish_time: Publish Time
+        invite_only: Invite Only
