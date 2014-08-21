@@ -1,10 +1,26 @@
 zh-CN:
   refinery:
     plugins:
+      event_categories:
+        title: Event Categories
       events:
         title: Events
     events:
       admin:
+        event_categories:
+          actions:
+            create_new: 建立新的 Event Category
+            reorder: 对 Event Categories 重新排序
+            reorder_done: 对 Event Categories 的重新排序结束
+          records:
+            title: Event Categories
+            sorry_no_results: 对不起，未找到结果。
+            no_items_yet: 目前没有 Event Categories . 点击 "Add New Event Category" 创建一个event
+              category.
+          event_category:
+            view_live_html: 查看 event category 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 event category
+            delete: 永久删除 event category
         events:
           actions:
             create_new: 建立新的 Event
@@ -12,20 +28,23 @@ zh-CN:
             reorder_done: 对 Events 的重新排序结束
           records:
             title: Events
-            sorry_no_results: 对不起，未找到结果。 #Sorry! There are no results found.
-
-            # There are no Events yet. Click "Add New Event" to add your first event.
+            sorry_no_results: 对不起，未找到结果。
             no_items_yet: 目前没有 Events . 点击 "Add New Event" 创建一个event.
           event:
             view_live_html: 查看 event 的最新内容.<br/><em>(新窗口中打开)</em>
             edit: 编辑 event
             delete: 永久删除 event
+      event_categories:
+        show:
+          other: 其他 Event Categories
       events:
         show:
           other: 其他 Events
   activerecord:
     attributes:
-      'refinery/events/event':
+      refinery/events/event_category:
+        name: Name
+      refinery/events/event:
         title: Title
         description: Description
         short_description: Short Description
