@@ -1,10 +1,27 @@
 en:
   refinery:
     plugins:
+      event_categories:
+        title: Event Categories
       events:
         title: Events
     events:
       admin:
+        event_categories:
+          actions:
+            create_new: Add New Event Category
+            reorder: Reorder Event Categories
+            reorder_done: Done Reordering Event Categories
+          records:
+            title: Event Categories
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Event Categories yet. Click "Add New Event
+              Category" to add your first event category.
+          event_category:
+            view_live_html: View this event category live <br/><em>(opens in a new
+              window)</em>
+            edit: Edit this event category
+            delete: Remove this event category forever
         events:
           actions:
             create_new: Add New Event
@@ -13,17 +30,23 @@ en:
           records:
             title: Events
             sorry_no_results: Sorry! There are no results found.
-            no_items_yet: There are no Events yet. Click "Add New Event" to add your first event.
+            no_items_yet: There are no Events yet. Click "Add New Event" to add your
+              first event.
           event:
             view_live_html: View this event live <br/><em>(opens in a new window)</em>
             edit: Edit this event
             delete: Remove this event forever
+      event_categories:
+        show:
+          other: Other Event Categories
       events:
         show:
           other: Other Events
   activerecord:
     attributes:
-      'refinery/events/event':
+      refinery/events/event_category:
+        name: Name
+      refinery/events/event:
         title: Title
         description: Description
         short_description: Short Description

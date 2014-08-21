@@ -1,10 +1,27 @@
 cs:
   refinery:
     plugins:
+      event_categories:
+        title: Event Categories
       events:
         title: Events
     events:
       admin:
+        event_categories:
+          actions:
+            create_new: Přidat Event Category
+            reorder: Řadit Event Categories
+            reorder_done: Konec řazení Event Categories
+          records:
+            title: Event Categories
+            sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
+            no_items_yet: Zatím nebyly vytvořeny žádné Event Categories. Zvolte "Přidat
+              Event Category" pro přidání prvního event category.
+          event_category:
+            view_live_html: Zobrazit náhled event category<br/><em>(otevře se v novém
+              okně)</em>
+            edit: Upravit event category
+            delete: Smazat event category
         events:
           actions:
             create_new: Přidat Event
@@ -13,17 +30,23 @@ cs:
           records:
             title: Events
             sorry_no_results: Litujeme, ale nebyly nalezny žádné výsledky.
-            no_items_yet: Zatím nebyly vytvořeny žádné Events. Zvolte "Přidat Event" pro přidání prvního event.
+            no_items_yet: Zatím nebyly vytvořeny žádné Events. Zvolte "Přidat Event"
+              pro přidání prvního event.
           event:
             view_live_html: Zobrazit náhled event<br/><em>(otevře se v novém okně)</em>
             edit: Upravit event
             delete: Smazat event
+      event_categories:
+        show:
+          other: Další Event Categories
       events:
         show:
           other: Další Events
   activerecord:
     attributes:
-      'refinery/events/event':
+      refinery/events/event_category:
+        name: Name
+      refinery/events/event:
         title: Title
         description: Description
         short_description: Short Description

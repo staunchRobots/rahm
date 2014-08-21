@@ -58,14 +58,16 @@ textarea.visual_editor {
   margin-right: auto;
 }
 
-.form-group .btn {
-  margin-top: 2em;
-}
-
 .wym_skin_refinery {
   width: 944px !important;
 }
 
 .map {
   height: 32em
+}
+
+#content {
+  .field, .form-actions{
+    width: 90%;
+  }
 }

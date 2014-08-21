@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820221840) do
+ActiveRecord::Schema.define(version: 20140821205627) do
 
   create_table "refinery_events", force: true do |t|
     t.string   "title"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(version: 20140820221840) do
     t.date     "publish_date"
     t.time     "publish_time"
     t.boolean  "invite_only"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "refinery_events_event_categories", force: true do |t|
+    t.string   "name"
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"

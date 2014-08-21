@@ -1,0 +1,15 @@
+<%= form_for [refinery, :events_admin, @event_category] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @event_category,
+              :include_object_name => true %>
+
+  <div class='field'>
+    <%= f.label :name -%>
+    <%= f.text_field :name, :class => 'larger widest' -%>
+  </div>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+             :continue_editing => false,
+             :delete_title => t('delete', :scope => 'refinery.event_categories.admin.event_categories.event_category'),
+             :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @event_category.name) -%>
+<% end -%>

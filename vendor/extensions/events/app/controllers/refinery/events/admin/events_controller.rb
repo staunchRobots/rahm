@@ -3,10 +3,15 @@ module Refinery
     module Admin
       class EventsController < ::Refinery::AdminController
 
+        before_filter :find_all_event_categories
+
         crudify :'refinery/events/event',
                 :xhr_paging => true
 
         protected
+          def find_all_event_categories
+            @event_categories = Refinery::Events::EventCategory.all
+          end
 
           def event_params
             params.require(:event).permit(:title, :description, :short_description, :event_category_id,

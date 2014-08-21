@@ -1,10 +1,27 @@
 nl:
   refinery:
     plugins:
+      event_categories:
+        title: Event Categories
       events:
         title: Events
     events:
       admin:
+        event_categories:
+          actions:
+            create_new: Nieuwe Event Category toevoegen
+            reorder: De volgorde van de Event Categories wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Event Category-volgorde
+          records:
+            title: Event Categories
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Event Categories. Druk op 'Nieuwe Event
+              Category toevoegen' om de eerste toe te voegen.
+          event_category:
+            view_live_html: Deze event category op de website bekijken <br/><em>(opent
+              in een nieuw venster)</em>
+            edit: Bewerk deze event category
+            delete: Deze event category definitief verwijderen
         events:
           actions:
             create_new: Nieuwe Event toevoegen
@@ -13,17 +30,24 @@ nl:
           records:
             title: Events
             sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
-            no_items_yet: Er zijn nog geen Events. Druk op 'Nieuwe Event toevoegen' om de eerste toe te voegen.
+            no_items_yet: Er zijn nog geen Events. Druk op 'Nieuwe Event toevoegen'
+              om de eerste toe te voegen.
           event:
-            view_live_html: Deze event op de website bekijken <br/><em>(opent in een nieuw venster)</em>
+            view_live_html: Deze event op de website bekijken <br/><em>(opent in een
+              nieuw venster)</em>
             edit: Bewerk deze event
             delete: Deze event definitief verwijderen
+      event_categories:
+        show:
+          other: Andere Event Categories
       events:
         show:
           other: Andere Events
   activerecord:
     attributes:
-      'refinery/events/event':
+      refinery/events/event_category:
+        name: Name
+      refinery/events/event:
         title: Title
         description: Description
         short_description: Short Description

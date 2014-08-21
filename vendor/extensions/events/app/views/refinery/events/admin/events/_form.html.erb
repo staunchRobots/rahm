@@ -175,8 +175,8 @@
 
       <div class="row-fluid">
         <div class='span4 control-group'>
-          <%= f.label :event_category_id -%>
-          <%= f.number_field :event_category_id -%>
+          <%= f.label :event_category -%>
+          <%= f.select(:event_category_id, @event_categories.collect {|d| [d.name, d.id] })%>
         </div>
       </div>
       

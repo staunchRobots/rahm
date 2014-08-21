@@ -1,11 +1,27 @@
 es:
   refinery:
     plugins:
+      event_categories:
+        title: Event Categories
       events:
         title: Events
-#        article: masculino/femenino
     events:
       admin:
+        event_categories:
+          actions:
+            create_new: Crear nuevo event category
+            reorder: Reordenar event categories
+            reorder_done: Reordenación de event categories completada
+          records:
+            title: Event Categories
+            sorry_no_results: Lo siento, no hay resultados
+            no_items_yet: No hay event categories todavía. Pulsa en "Crear nuevo Event
+              Category" para crear tu primer event category.
+          event_category:
+            view_live_html: Ver este event category como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
+            edit: Editar este event category
+            delete: Borrar este event category para siempre
         events:
           actions:
             create_new: Crear nuevo event
@@ -14,17 +30,24 @@ es:
           records:
             title: Events
             sorry_no_results: Lo siento, no hay resultados
-            no_items_yet: No hay events todavía. Pulsa en "Crear nuevo Event" para crear tu primer event.
+            no_items_yet: No hay events todavía. Pulsa en "Crear nuevo Event" para
+              crear tu primer event.
           event:
-            view_live_html: Ver este event como abierto al público <br/><em>(abre en ventana nueva)</em>
+            view_live_html: Ver este event como abierto al público <br/><em>(abre
+              en ventana nueva)</em>
             edit: Editar este event
             delete: Borrar este event para siempre
+      event_categories:
+        show:
+          other: Otros event categories
       events:
         show:
           other: Otros events
   activerecord:
     attributes:
-      'refinery/events/event':
+      refinery/events/event_category:
+        name: Name
+      refinery/events/event:
         title: Title
         description: Description
         short_description: Short Description
