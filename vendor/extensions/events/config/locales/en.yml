@@ -1,12 +1,28 @@
 en:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: Add New Attendee
+            reorder: Reorder Attendees
+            reorder_done: Done Reordering Attendees
+          records:
+            title: Attendees
+            sorry_no_results: Sorry! There are no results found.
+            no_items_yet: There are no Attendees yet. Click "Add New Attendee" to
+              add your first attendee.
+          attendee:
+            view_live_html: View this attendee live <br/><em>(opens in a new window)</em>
+            edit: Edit this attendee
+            delete: Remove this attendee forever
         event_categories:
           actions:
             create_new: Add New Event Category
@@ -36,6 +52,9 @@ en:
             view_live_html: View this event live <br/><em>(opens in a new window)</em>
             edit: Edit this event
             delete: Remove this event forever
+      attendees:
+        show:
+          other: Other Attendees
       event_categories:
         show:
           other: Other Event Categories
@@ -44,6 +63,10 @@ en:
           other: Other Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:

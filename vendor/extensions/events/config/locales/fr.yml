@@ -1,12 +1,28 @@
 fr:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: Créer un(e) nouve(au/l/lle) Attendee
+            reorder: Réordonner les Attendees
+            reorder_done: Fin de réordonnancement des Attendees
+          records:
+            title: Attendees
+            sorry_no_results: Désolé ! Aucun résultat.
+            no_items_yet: Il n'y a actuellement aucun(e) Attendee. Cliquer sur "Créer
+              un(e) nouve(au/l/lle) Attendee" pour créer votre premi(er/ère) attendee.
+          attendee:
+            view_live_html: Voir ce(t/tte) attendee <br/><em>(Ouvre une nouvelle fenêtre)</em>
+            edit: Modifier ce(t/tte) attendee
+            delete: Supprimer définitivement ce(t/tte) attendee
         event_categories:
           actions:
             create_new: Créer un(e) nouve(au/l/lle) Event Category
@@ -37,6 +53,9 @@ fr:
             view_live_html: Voir ce(t/tte) event <br/><em>(Ouvre une nouvelle fenêtre)</em>
             edit: Modifier ce(t/tte) event
             delete: Supprimer définitivement ce(t/tte) event
+      attendees:
+        show:
+          other: Autres Attendees
       event_categories:
         show:
           other: Autres Event Categories
@@ -45,6 +64,10 @@ fr:
           other: Autres Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:

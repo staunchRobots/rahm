@@ -4,6 +4,25 @@
                 :object => @event,
                 :include_object_name => true %>
 
+    :object => @event,
+    :include_object_name => true %>
+
+    <ul class="nav nav-tabs fix-nav">
+      <li class="active"><a data-toggle="tab" href="#event_details">Edit Event Details</a></li>
+      <li><a data-toggle="tab" href="#sign_up">Sign-Up Editor</a></li>
+      <% if !@event.id.nil? -%>
+      <li><a data-toggle="tab" href="#attendees">Attendees</a></li>
+      <% end -%>
+    </ul>
+    <div class="container">
+      <div class="tab-content">
+        <%= render 'event_details', :f => f, :include_object_name => true %>
+        <%= render 'event_sign_up', :f => f, :include_object_name => true %>
+        <%= render 'event_attendees', :f => f, :include_object_name => true %>
+        <%= render 'event_javascript' %>
+      </div>
+    </div>
+
     <div id="event_details">
       <div class='control-group'>
         <%= f.label :title -%>

@@ -1,12 +1,29 @@
 nl:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: Nieuwe Attendee toevoegen
+            reorder: De volgorde van de Attendees wijzigen
+            reorder_done: Klaar met het wijzingen van de van de Attendee-volgorde
+          records:
+            title: Attendees
+            sorry_no_results: Helaas! Er zijn geen resultaten gevonden.
+            no_items_yet: Er zijn nog geen Attendees. Druk op 'Nieuwe Attendee toevoegen'
+              om de eerste toe te voegen.
+          attendee:
+            view_live_html: Deze attendee op de website bekijken <br/><em>(opent in
+              een nieuw venster)</em>
+            edit: Bewerk deze attendee
+            delete: Deze attendee definitief verwijderen
         event_categories:
           actions:
             create_new: Nieuwe Event Category toevoegen
@@ -37,6 +54,9 @@ nl:
               nieuw venster)</em>
             edit: Bewerk deze event
             delete: Deze event definitief verwijderen
+      attendees:
+        show:
+          other: Andere Attendees
       event_categories:
         show:
           other: Andere Event Categories
@@ -45,6 +65,10 @@ nl:
           other: Andere Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:
