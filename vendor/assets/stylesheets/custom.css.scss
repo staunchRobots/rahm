@@ -16,8 +16,8 @@
 
 .control-group {
   margin-bottom: 0em;
-  input {
-    width: 98% !important;
+  input, textarea {
+    width: 97% !important;
   }
 }
 
@@ -70,4 +70,8 @@ textarea.visual_editor {
   .field, .form-actions{
     width: 90%;
   }
+}
+
+.saveAttendee{
+  margin-top: 3em;
 }

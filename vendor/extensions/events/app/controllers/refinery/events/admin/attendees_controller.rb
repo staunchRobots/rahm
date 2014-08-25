@@ -9,7 +9,7 @@ module Refinery
 
         protected
           def attendee_params
-            params.require(:attendee).permit(:first_name, :last_name, :email, :position, :created_at, :updated_at)
+            params.require(:attendee).permit(:first_name, :last_name, :email, :position, :created_at, :updated_at, :event_ids => [])
           end
       end
     end

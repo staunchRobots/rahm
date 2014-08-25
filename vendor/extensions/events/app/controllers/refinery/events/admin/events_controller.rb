@@ -18,7 +18,7 @@ module Refinery
                           :poster_id, :background_image_id, :time_start, :time_end, :date, :end_date,
                           :street_address, :address_description, :zip, :state, :city, :telephone,
                           :email, :organizer_name, :has_signup, :limit, :email_subject, :email_body,
-                          :is_published, :publish_date, :publish_time, :invite_only, :position)
+                          :is_published, :publish_date, :publish_time, :invite_only, :position, :attendees_ids => [])
           end
 
       end
