@@ -1,12 +1,29 @@
 nb:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: Lag en ny Attendee
+            reorder: Endre rekkefølgen på Attendees
+            reorder_done: Ferdig å endre rekkefølgen Attendees
+          records:
+            title: Attendees
+            sorry_no_results: Beklager! Vi fant ikke noen resultater.
+            no_items_yet: Det er ingen Attendees enda. Klikk på "Lag en ny Attendee"
+              for å legge til din første attendee.
+          attendee:
+            view_live_html: Vis hvordan denne attendee ser ut offentlig <br/><em>(åpner
+              i et nytt vindu)</em>
+            edit: Rediger denne attendee
+            delete: Fjern denne attendee permanent
         event_categories:
           actions:
             create_new: Lag en ny Event Category
@@ -37,6 +54,9 @@ nb:
               i et nytt vindu)</em>
             edit: Rediger denne event
             delete: Fjern denne event permanent
+      attendees:
+        show:
+          other: Andre Attendees
       event_categories:
         show:
           other: Andre Event Categories
@@ -45,6 +65,10 @@ nb:
           other: Andre Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:

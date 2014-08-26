@@ -1,12 +1,27 @@
 zh-CN:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: 建立新的 Attendee
+            reorder: 对 Attendees 重新排序
+            reorder_done: 对 Attendees 的重新排序结束
+          records:
+            title: Attendees
+            sorry_no_results: 对不起，未找到结果。
+            no_items_yet: 目前没有 Attendees . 点击 "Add New Attendee" 创建一个attendee.
+          attendee:
+            view_live_html: 查看 attendee 的最新内容.<br/><em>(新窗口中打开)</em>
+            edit: 编辑 attendee
+            delete: 永久删除 attendee
         event_categories:
           actions:
             create_new: 建立新的 Event Category
@@ -34,6 +49,9 @@ zh-CN:
             view_live_html: 查看 event 的最新内容.<br/><em>(新窗口中打开)</em>
             edit: 编辑 event
             delete: 永久删除 event
+      attendees:
+        show:
+          other: 其他 Attendees
       event_categories:
         show:
           other: 其他 Event Categories
@@ -42,6 +60,10 @@ zh-CN:
           other: 其他 Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:

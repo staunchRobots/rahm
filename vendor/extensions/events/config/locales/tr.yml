@@ -1,12 +1,29 @@
 tr:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: Yeni Ekle Attendee
+            reorder: Tekrar sirala Attendees
+            reorder_done: Tekrar siralama tamamlandiAttendees
+          records:
+            title: Attendees
+            sorry_no_results: Uzgunum! Herhangi bir sonuc bulunamadi.
+            no_items_yet: Herhangi bir Attendees yok henuz.  Tikla "Yeni Ekle Attendee"
+              eklemek senin ilk attendee.
+          attendee:
+            view_live_html: Bunu canlu attendee goruntule <br/><em>(yeni bir pencerede
+              acar)</em>
+            edit: Bunu Duzenle attendee
+            delete: Bunu Sil attendee sonsuza dek
         event_categories:
           actions:
             create_new: Yeni Ekle Event Category
@@ -37,6 +54,9 @@ tr:
               acar)</em>
             edit: Bunu Duzenle event
             delete: Bunu Sil event sonsuza dek
+      attendees:
+        show:
+          other: Diger Attendees
       event_categories:
         show:
           other: Diger Event Categories
@@ -45,6 +65,10 @@ tr:
           other: Diger Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:
