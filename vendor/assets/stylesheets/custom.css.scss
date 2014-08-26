@@ -21,7 +21,13 @@
 .control-group {
   margin-bottom: 0em;
   input, textarea {
-    width: 97% !important;
+    width: 92% !important;
+  }
+}
+
+.datetimepick {
+  input, textarea {
+    width: 80% !important;
   }
 }
 

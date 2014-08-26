@@ -34,14 +34,15 @@ window.previewMapManager = (function(){
 //Datapicker
 $(function() {
   // initialize input widgets first
-  $('.datetimepick .time').datetimepicker({
+  $('.datetimepickerTime').datetimepicker({
+    language: 'pt-BR',
     pickDate: false
   });
 
-  $('.datetimepick .date').datetimepicker({
-    pickTime: false,
+  $('.datetimepickerDate').datetimepicker({
+    language: 'pt-BR',
+    pickTime: false
   });
-
 });
 
 //utils
