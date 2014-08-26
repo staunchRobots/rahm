@@ -68,9 +68,16 @@
       </div>
     </div>
 
-    <div class="map span6">
-      <h1>map here</h1>
-    </div>  
+    <div class="span6 map previewMap">
+      <div class="control-group">
+        <%= image_tag('', :id => "event_mappreview", :alt => "map preview", :width => 500, :height => 500)-%>
+      </div>
+
+      <%= f.hidden_field 'current_locations', :value => @current_locations %>
+      <%= hidden_field_tag 'new_locations' %>
+      <%= hidden_field_tag 'del_locations' %>
+      <%= hidden_field_tag 'has_custom_name', @has_custom_name %>
+    </div> 
   </div>
 
   <div class="row-fluid datetimepick">

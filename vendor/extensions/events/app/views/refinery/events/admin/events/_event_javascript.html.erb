@@ -6,7 +6,23 @@
     });
 
     $(function(){
-    // Attendees logic
+
+      previewMapManager.fields = {
+        addressInput : $('#event_street_address'),
+        countryInput : $('#event_country'),
+        stateInput : $('#event_state'),
+        cityInput : $('#event_city'),
+        zipInput : $('#event_zip'),
+        mapPreview : $('#event_mappreview')
+      };
+
+      $.each(previewMapManager.fields, function(index, item) {
+        item.on('change', previewMapManager.setMapPreview);
+      });
+
+      previewMapManager.setMapPreview()
+
+      // Attendees logic
       window.saveAttendee = function(){
         $('#attendeesError').hide();
         if(!checkNewAttendeeIsValid()){
