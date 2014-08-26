@@ -4,13 +4,39 @@ module Refinery
       class EventsController < ::Refinery::AdminController
 
         before_filter :find_all_event_categories
+        before_filter :prepare_edition, :only => [:edit]
 
         crudify :'refinery/events/event',
                 :xhr_paging => true
 
+
+         def index
+          respond_to do |format|
+            format.html do
+              search_all_events if searching?
+              paginate_all_events
+
+              render_partial_response?
+            end
+            format.json { @events = Event.all }
+          end
+        end
+
+        def new
+          @event = Refinery::Locations::Event.new()
+          if params[:date] != nil
+            @event.date = Date.parse(params[:date])
+          end
+
+        end
+
         protected
           def find_all_event_categories
             @event_categories = Refinery::Events::EventCategory.all
+          end
+
+          def prepare_edition
+            @attendees = @event.attendees.to_json
           end
 
           def event_params

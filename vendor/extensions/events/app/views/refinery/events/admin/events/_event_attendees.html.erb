@@ -27,6 +27,50 @@
         </div>
       </div>
     </div>
+  </div>
+
+    <div id="attendeesError" class="alert alert-danger" role="alert">Please fix the attendee</div>
+    <br/>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="control-group">
+          <h4>Index of attendees</h4>
+        </div>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <div class="span12">
+        <table id="attendeeIndex" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th class="header">#</th>
+              <th class="header">First Name</th>
+              <th class="header">Last Name</th>
+              <th class="header">Email</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+
+          <div id="deleteAttendeeModal" class="modal fade">
+            <div class="modal-dialog bg-danger">
+              <div class="modal-content">
+                <div class="modal-body bg-danger">
+                  <p>Are you sure?&hellip;</p>
+                  <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-danger ">Delete Attendee</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+        </table>
+      </div>
+    </div>
+
+    <input type="hidden" id="attendee_id">
+  
     <div class="row-fluid">
       <div class='first span6 control-group'>
         <%= f.label :email_subject -%>
@@ -39,3 +83,26 @@
     </div>
   </div>
 </div>
+<%= f.hidden_field 'attendees', :value => @attendees %>
+
+<% content_for :javascripts do %>
+  <script id="attendeeIndexTmpl" type="x-tmpl-mustache">
+    {{#attendees}}
+    <tr>
+      <td>{{index}}</td>
+      <td>{{first_name}}</td>
+      <td>{{last_name}}</td>
+      <td>{{email}}</td>
+      <td>
+        <a href="javascript:setEditAttendee({{id}})">Update</a>
+        <a href="javascript:deleteAttendee({{id}})">Delete</a>
+      </td>
+    </tr>
+    {{/attendees}}
+  </script>
+  <script id="defaultEmailTmpl" type="x-tmpl-mustache">
+    <h1>Welcome {{attendee.first_name}} {{attendee.last_name}}</h1>
+    <p>You have successfully signed up to {{event.title}},
+    </p><p>Thanks for joining and have a great day!</p>
+  </script>
+<% end %>
