@@ -23,7 +23,7 @@ module Refinery
         end
 
         def new
-          @event = Refinery::Locations::Event.new()
+          @event = Refinery::Events::Event.new()
           if params[:date] != nil
             @event.date = Date.parse(params[:date])
           end
