@@ -6,6 +6,10 @@
   width: 100%;
 }
 
+.tab-content {
+  overflow-x: hidden; 
+}
+
 .actions a img {
   padding: 0;
 }
@@ -16,8 +20,14 @@
 
 .control-group {
   margin-bottom: 0em;
-  input {
-    width: 98% !important;
+  input, textarea {
+    width: 92% !important;
+  }
+}
+
+.datetimepick {
+  input, textarea {
+    width: 80% !important;
   }
 }
 
@@ -70,4 +80,8 @@ textarea.visual_editor {
   .field, .form-actions{
     width: 90%;
   }
+}
+
+.saveAttendee{
+  margin-top: 3em;
 }

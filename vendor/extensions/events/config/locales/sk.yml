@@ -1,12 +1,28 @@
 sk:
   refinery:
     plugins:
+      attendees:
+        title: Attendees
       event_categories:
         title: Event Categories
       events:
         title: Events
     events:
       admin:
+        attendees:
+          actions:
+            create_new: Pridať Attendee
+            reorder: Preusporiadať Attendees
+            reorder_done: Koniec radenia Attendees
+          records:
+            title: Attendees
+            sorry_no_results: Ľutujeme, ale neboli nájdené žiadne výsledky.
+            no_items_yet: Nie sú vytvorené žiadne Attendees. Kliknite na "Pridať Attendee"
+              pre pridanie prvého attendee.
+          attendee:
+            view_live_html: Zobraziť náhľad attendee<br/><em>(otvorí sa v novom okne)</em>
+            edit: Upraviť attendee
+            delete: Zmazať attendee
         event_categories:
           actions:
             create_new: Pridať Event Category
@@ -36,6 +52,9 @@ sk:
             view_live_html: Zobraziť náhľad event<br/><em>(otvorí sa v novom okne)</em>
             edit: Upraviť event
             delete: Zmazať event
+      attendees:
+        show:
+          other: Daľšie Attendees
       event_categories:
         show:
           other: Daľšie Event Categories
@@ -44,6 +63,10 @@ sk:
           other: Daľšie Events
   activerecord:
     attributes:
+      refinery/events/attendee:
+        first_name: First Name
+        last_name: Last Name
+        email: Email
       refinery/events/event_category:
         name: Name
       refinery/events/event:

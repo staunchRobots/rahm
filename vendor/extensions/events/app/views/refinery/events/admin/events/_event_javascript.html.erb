@@ -1,0 +1,149 @@
+<% content_for :javascripts do -%>
+  <script>
+    $(document).ready(function(){
+      page_options.init(false, '', '');
+      $('#attendeesError').hide();
+    });
+
+    $(function(){
+
+      previewMapManager.fields = {
+        addressInput : $('#event_street_address'),
+        countryInput : $('#event_country'),
+        stateInput : $('#event_state'),
+        cityInput : $('#event_city'),
+        zipInput : $('#event_zip'),
+        mapPreview : $('#event_mappreview')
+      };
+
+      $.each(previewMapManager.fields, function(index, item) {
+        item.on('change', previewMapManager.setMapPreview);
+      });
+
+      previewMapManager.setMapPreview()
+
+      // Attendees logic
+      window.saveAttendee = function(){
+        $('#attendeesError').hide();
+        if(!checkNewAttendeeIsValid()){
+          $('#attendeesError').show();
+        }
+        else
+        {
+          var event_id = location.pathname.match(/events\/(\d+)/)[1];
+
+          var data = {
+            'authenticity_token': utils.getAuthenticityToken(),
+            'attendee':{
+              'email' : $('[name=attendee-email]').val(),
+              'first_name': $('[name=attendee-firstName]').val(),
+              'last_name': $('[name=attendee-lastName]').val()
+            },
+            'notification': $('#notification:checked').length > 0,
+            'event_id':event_id
+          };
+
+          var requestParams = {
+            type: 'POST',
+            data: data
+          };
+
+          // If it is an update sends a put request
+          if($('#attendee_id').val()){
+            // requestParams.type = 'PUT';
+            data.attendee.id = $('#attendee_id').val();
+            requestParams.success = function (data) {
+              var attendee = utils.getElementInArray(event_attendees.attendees, data.id);
+              attendee.first_name = data.first_name;
+              attendee.last_name = data.last_name;
+            };
+          } else {
+            requestParams.success = function (data) {
+              event_attendees.attendees.push(data);
+            };
+          }
+
+          $('#saveAttendeeButton').button('loading');
+
+          $.ajax(utils.getServerUrl() + 'refinery/events/attendees.json', requestParams)
+          .fail(function(jqXHR, textStatus, errorThrown) {
+            console.dir(errorThrown);
+          })
+          .always(function() {
+            refreshAttendees();
+            $('#saveAttendeeButton').button('reset');
+                // fix the loading style
+              });
+        }
+      };
+
+      window.setEditAttendee = function (attendee_id) {
+        var attendee = utils.getElementInArray(event_attendees.attendees, attendee_id);
+        $('#attendee_id').val(attendee_id);
+        $('[name=attendee-email]').val(attendee.email);
+        $('[name=attendee-firstName]').val(attendee.first_name);
+        $('[name=attendee-lastName]').val(attendee.last_name);
+
+        $('[name=attendee-email]').removeAttr('readonly');
+        $('[name=attendee-email]').attr('readonly', 'true');
+      };
+
+      window.deleteAttendee = function(attendee_id){
+        $('#deleteAttendeeModal').modal();
+        $('#deleteAttendeeModal .btn-danger').data('attendee_id', attendee_id);
+      };
+
+      function deleteConfirmation(){
+        var attendee_id = $('#deleteAttendeeModal .btn-danger').data('attendee_id');
+        var requestParams = {
+          type: 'DELETE',
+          data: {
+            'authenticity_token': utils.getAuthenticityToken()
+          }
+        };
+        $.ajax(utils.getServerUrl() + 'refinery/events/attendees/' + attendee_id + '.json',requestParams)
+        .success(function (data){
+          utils.removeFromArray(event_attendees.attendees, data.id);
+          refreshAttendees();
+          $('#deleteAttendeeModal').modal('hide');
+        })
+        .fail(function (data){
+          console.dir(data);
+        });
+      }
+
+      function checkNewAttendeeIsValid (){
+        var isValid = $('#attendeeForm input[type!=hidden]').toArray().every(function(input){
+          return !!$(input).val()
+        });
+
+        return isValid && $('[name=attendee-email]')[0].validity.valid;
+      }
+
+      var event_attendees = {};
+
+      event_attendees.attendees = JSON.parse($('#event_attendees').val() || "[]");
+
+      function remapAttendees(data){
+        data = data.map(function(item, index){
+          item.index = index + 1;
+          return item;
+        });
+
+        console.dir(data);
+      }
+
+      function refreshAttendees() {
+        remapAttendees(event_attendees.attendees);
+        var template = $('#attendeeIndexTmpl').html();
+        $('#attendeeIndex>tbody').html(Mustache.render(template, event_attendees));
+        $('#attendees input').val('');
+        $('[name=attendee-email]').removeAttr('readonly');
+      }
+
+      $('#deleteAttendeeModal .btn-danger').on('click', deleteConfirmation);
+
+      refreshAttendees();
+    });
+  </script>
+<% end -%>
