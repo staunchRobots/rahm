@@ -144,6 +144,22 @@
       $('#deleteAttendeeModal .btn-danger').on('click', deleteConfirmation);
 
       refreshAttendees();
+
+      function hasSignupChange(launchModal){
+        if($('#event_has_signup:checked').val()){
+          $('a[href=#attendees]').closest('li').show();
+        } else {
+          $('a[href=#attendees]').closest('li').hide();
+        }
+      }
+
+
+      hasSignupChange(false);
+
+      $('#event_has_signup').on('change', function(){
+        hasSignupChange(true);
+      });
+
     });
   </script>
 <% end -%>

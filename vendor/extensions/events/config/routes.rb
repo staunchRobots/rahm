@@ -36,7 +36,7 @@ Refinery::Core::Engine.routes.draw do
 
   # Frontend routes
   namespace :events do
-    resources :attendees, :only => [:index, :show]
+    resources :attendees, :only => [:index, :show, :new, :create]
   end
 
   # Admin routes

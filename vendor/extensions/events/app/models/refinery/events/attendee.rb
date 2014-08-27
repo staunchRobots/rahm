@@ -3,7 +3,7 @@ module Refinery
     class Attendee < Refinery::Core::BaseModel
 
 
-      validates :first_name, :presence => true, :uniqueness => true
+      validates :email, :presence => true, :uniqueness => true
 
       has_and_belongs_to_many :events
 
