@@ -63,9 +63,7 @@ Rails.application.configure do
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
   if config.respond_to?(:action_mailer)
-    config.action_mailer.default_url_options = { :host => 'www.rahm.com' }
     config.action_mailer.delivery_method = :smtp
-    
     config.action_mailer.smtp_settings = {
       :address              => 'smtp.sendgrid.net',
       :port                 => 587,
@@ -74,6 +72,9 @@ Rails.application.configure do
       :password             => ENV['SENDGRID_PASSWORD'],
       :authentication       => :plain,
       :enable_starttls_auto => true
+      config.action_mailer.perform_deliveries = true
+      config.action_mailer.raise_delivery_errors = true
+      config.action_mailer.default_options = {from: 'no-reply@example.com'}
     }
   end
 
