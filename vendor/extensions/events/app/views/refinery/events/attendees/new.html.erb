@@ -1,0 +1,27 @@
+<%= form_for [refinery, :events, @attendee] do |f| -%>
+  <%= render '/refinery/admin/error_messages',
+              :object => @attendee,
+              :include_object_name => true %>
+
+  <div class="form-group">
+    <%= f.label :email -%>
+    <%= f.email_field :email, :class => 'form-control' -%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :first_name -%>
+    <%= f.text_field :first_name, :class => 'form-control' -%>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name -%>
+    <%= f.text_field :last_name, :class => 'form-control' -%>
+  </div>
+
+  <%= hidden_field_tag :event_id, @event_id -%>
+
+  <%= render '/refinery/admin/form_actions', :f => f,
+           :continue_editing => false,
+           :delete_title => t('delete', :scope => 'refinery.attendees.admin.attendees.attendee'),
+           :delete_confirmation => t('message', :scope => 'refinery.admin.delete', :title => @attendee.first_name) -%>
+<% end -%>

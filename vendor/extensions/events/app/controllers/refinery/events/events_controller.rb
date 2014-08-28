@@ -4,6 +4,7 @@ module Refinery
 
       before_filter :find_all_events
       before_filter :find_page
+      helper_method :get_availability
 
       def index
         # you can use meta fields from your model instead (e.g. browser_title)
@@ -27,6 +28,14 @@ module Refinery
 
       def find_page
         @page = ::Refinery::Page.where(:link_url => "/events").first
+      end
+
+      def get_availability(event)
+        if event.limit.nil? or event.limit == 0
+          return 'NA'
+        else
+          return event.limit - event.attendees.size;
+        end
       end
 
     end

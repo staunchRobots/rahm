@@ -4,6 +4,26 @@
       <li>
         <%= link_to event.title, refinery.events_event_path(event) %>
       </li>
+
+      <% if event.has_signup -%>
+        <td class="actions">
+          <!-- If the event limit is null or zero there is not limit -->
+          <% if event.limit == nil or event.limit == 0 or event.attendees.size < event.limit %>
+            <div class="button-group"> 
+              <%= link_to refinery.new_events_attendee_path(event, :event_id => event.id), :class => 'btn btn-primary' do %>
+                Sign up
+                <% if !(event.limit.nil?) && event.limit > 0 %>
+                  <span class="badge">
+                    <%= get_availability(event) %> left
+                  </span> 
+                <% end %>
+              <% end %>
+            </div>
+          <% else %>
+            <span class='btn btn-danger disabled'>Full</span>
+          <% end %>
+        </td>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
