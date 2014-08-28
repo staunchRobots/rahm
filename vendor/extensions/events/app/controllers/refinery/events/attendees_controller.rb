@@ -72,6 +72,8 @@ module Refinery
             # if the event is not associated to the attendee...
             attendee.events << event
           end
+          
+          EventMailer.confirmation_email(attendee, event).deliver
           redirect_to refinery.events_event_path event.id
         end
 
