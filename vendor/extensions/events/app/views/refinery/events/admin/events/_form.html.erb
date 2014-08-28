@@ -6,13 +6,15 @@
 
     <ul class="nav nav-tabs fix-nav">
       <li class="active"><a href="#event_details" data-target="#event_details" data-toggle="tab">Edit Event Details</a></li>
+      <li><a href="#sign_up" data-target="#sign_up"  data-toggle="tab">Sign-Up Editor</a></li>
       <% if !@event.id.nil? -%>
       <li><a href="#attendees" data-target="#attendees" data-toggle="tab">Attendees</a></li>
       <% end -%>
     </ul>
     <div class="tab-content">
-      <%= render 'event_details',    :f => f, :include_object_name => true %>
-      <%= render 'event_attendees',  :f => f, :include_object_name => true %>
+      <%= render 'event_details',   :f => f, :include_object_name => true %>
+      <%= render 'event_sign_up',   :f => f, :include_object_name => true %>
+      <%= render 'event_attendees', :f => f, :include_object_name => true %>
       <%= render 'event_javascript' %>
     </div>
     

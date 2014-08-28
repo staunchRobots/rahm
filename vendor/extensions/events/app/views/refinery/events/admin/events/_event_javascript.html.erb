@@ -147,8 +147,10 @@
 
       function hasSignupChange(launchModal){
         if($('#event_has_signup:checked').val()){
+          $('a[href=#sign_up]').closest('li').show();
           $('a[href=#attendees]').closest('li').show();
         } else {
+          $('a[href=#sign_up]').closest('li').hide();
           $('a[href=#attendees]').closest('li').hide();
         }
       }
