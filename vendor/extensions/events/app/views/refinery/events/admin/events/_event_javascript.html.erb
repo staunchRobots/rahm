@@ -155,13 +155,27 @@
         }
       }
 
-
       hasSignupChange(false);
 
       $('#event_has_signup').on('change', function(){
         hasSignupChange(true);
       });
 
+      function inviteOnlyEvent(){
+        var formGroup = $('#event_url_text').closest('.control-group');
+        if($('#event_invite_only:checked').val()){
+          $('#event_url_text').val(utils.getServerUrl() + $('#event_url_hidden').val());
+          formGroup.show();
+        }
+        else
+        {
+          formGroup.hide();
+        }
+      }
+
+      inviteOnlyEvent();
+
+      $('#event_invite_only').on('change', inviteOnlyEvent);
     });
   </script>
 <% end -%>
