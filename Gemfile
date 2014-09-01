@@ -58,3 +58,8 @@ gem 'seo_meta', github: 'parndt/seo_meta', branch: 'master'
 gem 'paper_trail', github: 'airblade/paper_trail', branch: 'master'
 
 gem 'refinerycms-events', path: 'vendor/extensions'
+
+gem 'iron_worker_ng', '~>1.5.0'
+
+# rest api calls
+gem 'httparty', '~> 0.13.1'

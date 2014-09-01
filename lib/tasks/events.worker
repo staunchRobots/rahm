@@ -1,0 +1,10 @@
+# define the runtime language
+runtime "ruby"
+
+# rest api calls
+gem 'httparty', '~> 0.13.1'
+# exec is the file that will be executed:
+exec "events_worker.rb"
+
+# to upload the iron worker exec    ~iron_worker upload events
+# then schedule the task executed   ~ruby enqueue_events_task.rb

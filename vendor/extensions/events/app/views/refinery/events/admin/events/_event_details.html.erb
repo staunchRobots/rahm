@@ -84,7 +84,7 @@
     <h1>Date and Time</h1>
     <div class="datetimepickerDate control-group span3 input-append first">
       <%= f.label :date -%>
-      <%= f.text_field :date, :class => 'date start', :data => {format: 'yyyy-MM-dd'} -%>
+      <%= f.text_field :date, :class => 'date start', :data => {format: 'yyyy/MM/dd'} -%>
        <span class="add-on">
         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       </span>
@@ -98,7 +98,7 @@
     </div>
     <div class="datetimepickerDate control-group span3 input-append">
       <%= f.label :end_date -%>
-      <%= f.text_field :end_date, :class => 'date end', :data => {format: 'yyyy-MM-dd'}-%>
+      <%= f.text_field :end_date, :class => 'date end', :data => {format: 'yyyy/MM/dd'}-%>
       <span class="add-on">
         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       </span>
@@ -136,7 +136,7 @@
       <div class="first span12 datetimepick">
         <div class="datetimepickerDate first control-group span3 input-append">
           <%= f.label :publish_date -%>
-          <%= f.text_field :publish_date, :data => {format: 'yyyy-MM-dd'}-%>
+          <%= f.text_field :publish_date, :data => {format: 'yyyy/MM/dd'}-%>
           <span class="add-on">
             <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
           </span>
