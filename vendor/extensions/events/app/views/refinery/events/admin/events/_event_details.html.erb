@@ -112,8 +112,6 @@
     </div>
   </div>
 
-  
-
   <div class="row-fluid">
     <div class="span6 organizer">
       <h1>Organizer</h1>
@@ -130,52 +128,50 @@
         <%= f.text_field :organizer_name -%>
       </div>
     </div>
-
-    <div class="span6 datetimepick">
-      <h1>Aditional Settings</h1>
-      <div class="datetimepickerDate first control-group span6 input-append">
-        <%= f.label :publish_date -%>
-        <%= f.text_field :publish_date, :data => {format: 'yyyy-MM-dd'}-%>
-        <span class="add-on">
-          <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-        </span>
-      </div>
-      <div class="datetimepickerTime control-group span6 input-append">
-        <%= f.label :publish_time -%>
-        <%= f.text_field :publish_time, :data => {format: 'hh:mm:ss'} -%>
-        <span class="add-on">
-          <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-        </span>
-      </div>
-      <div class="span12">
-        <div class='control-group'>
-          <%= f.label :is_published -%>
-          <%= f.check_box :is_published, :checked => @event[:is_published] -%>
-        </div>
-      </div>  
-    </div>
   </div>
-  
+
   <div class="row-fluid">
-    <div class="span3">
+    <h1>Aditional Settings</h1>
+    <% if @event.is_published.nil? or !@event.is_published %>
+      <div class="first span12 datetimepick">
+        <div class="datetimepickerDate first control-group span3 input-append">
+          <%= f.label :publish_date -%>
+          <%= f.text_field :publish_date, :data => {format: 'yyyy-MM-dd'}-%>
+          <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+          </span>
+        </div>
+        <div class="datetimepickerTime control-group span3 input-append">
+          <%= f.label :publish_time -%>
+          <%= f.text_field :publish_time, :data => {format: 'hh:mm:ss'} -%>
+          <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+          </span>
+        </div>     
+      </div>
+    <% end %>
+    <div class="first span2">
       <div class='control-group'>
         <%= f.label :has_signup -%>
         <%= f.check_box :has_signup, :checked => @event[:has_signup] -%>
       </div>
     </div>
-    <div class="span3">
+    <div class="span2">
       <div class='control-group'>
         <%= f.label :invite_only -%>
-        <%= f.check_box :invite_only, :checked => @event[:invite_only] -%>
-      </div>    
+        <%= f.check_box :invite_only, {class: 'no-change'} -%>
+      </div>
+      <%= hidden_field_tag 'event_url_hidden' , refinery.events_event_path(@event)%>      
     </div>
-  </div>
-
-  <div class="row-fluid">
-    <div class='span4 control-group'>
+    <div class="span6">
+      <div class="control-group">
+        <%= label_tag 'event_url' -%>
+        <%= text_field_tag 'event_url_text' , nil, {class: 'form-control', readonly: true} -%>
+      </div> 
+    </div>
+    <div class='span12 first control-group'>
       <%= f.label :event_category -%>
       <%= f.select(:event_category_id, @event_categories.collect {|d| [d.name, d.id] })%>
     </div>
-  </div>
-  
+  </div> 
 </div>

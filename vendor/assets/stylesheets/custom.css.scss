@@ -10,6 +10,10 @@
   overflow-x: hidden; 
 }
 
+.row-fluid {
+  margin-bottom: 2em;
+}
+
 .actions a img {
   padding: 0;
 }
@@ -84,4 +88,8 @@ textarea.visual_editor {
 
 .saveAttendee{
   margin-top: 3em;
+}
+
+.table {
+  margin-top: 2em;
 }
