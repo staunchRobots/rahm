@@ -156,19 +156,21 @@
         <%= f.check_box :has_signup, :checked => @event[:has_signup] -%>
       </div>
     </div>
-    <div class="span2">
-      <div class='control-group'>
-        <%= f.label :invite_only -%>
-        <%= f.check_box :invite_only, {class: 'no-change'} -%>
+    <% if !@event.id.nil? %>
+      <div class="span2">
+        <div class='control-group'>
+          <%= f.label :invite_only -%>
+          <%= f.check_box :invite_only, {class: 'no-change'} -%>
+        </div>
+        <%= hidden_field_tag 'event_url_hidden' , refinery.events_event_path(@event)%>      
       </div>
-      <%= hidden_field_tag 'event_url_hidden' , refinery.events_event_path(@event)%>      
-    </div>
-    <div class="span6">
-      <div class="control-group">
-        <%= label_tag 'event_url' -%>
-        <%= text_field_tag 'event_url_text' , nil, {class: 'form-control', readonly: true} -%>
-      </div> 
-    </div>
+      <div class="span6">
+        <div class="control-group">
+          <%= label_tag 'event_url' -%>
+          <%= text_field_tag 'event_url_text' , nil, {class: 'form-control', readonly: true} -%>
+        </div> 
+      </div>
+    <% end %>
     <div class='span12 first control-group'>
       <%= f.label :event_category -%>
       <%= f.select(:event_category_id, @event_categories.collect {|d| [d.name, d.id] })%>
