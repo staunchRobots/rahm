@@ -45,6 +45,10 @@ gem 'spring',        group: :development
 gem 'refinerycms', github: 'refinery/refinerycms', branch: 'master'
 gem 'refinerycms-i18n', github: 'refinery/refinerycms-i18n', branch: 'master'
 
+group :development, :test do
+  gem 'refinerycms-testing'
+end
+
 gem 'quiet_assets'
 
 # Add support for refinerycms-acts-as-indexed
