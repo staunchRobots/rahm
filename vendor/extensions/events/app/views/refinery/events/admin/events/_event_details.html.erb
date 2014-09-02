@@ -84,7 +84,7 @@
     <h1>Date and Time</h1>
     <div class="datetimepickerDate control-group span3 input-append first">
       <%= f.label :date -%>
-      <%= f.text_field :date, :class => 'date start', :data => {format: 'yyyy-MM-dd'} -%>
+      <%= f.text_field :date, :class => 'date start', :data => {format: 'yyyy/MM/dd'} -%>
        <span class="add-on">
         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       </span>
@@ -98,7 +98,7 @@
     </div>
     <div class="datetimepickerDate control-group span3 input-append">
       <%= f.label :end_date -%>
-      <%= f.text_field :end_date, :class => 'date end', :data => {format: 'yyyy-MM-dd'}-%>
+      <%= f.text_field :end_date, :class => 'date end', :data => {format: 'yyyy/MM/dd'}-%>
       <span class="add-on">
         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
       </span>
@@ -136,7 +136,7 @@
       <div class="first span12 datetimepick">
         <div class="datetimepickerDate first control-group span3 input-append">
           <%= f.label :publish_date -%>
-          <%= f.text_field :publish_date, :data => {format: 'yyyy-MM-dd'}-%>
+          <%= f.text_field :publish_date, :data => {format: 'yyyy/MM/dd'}-%>
           <span class="add-on">
             <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
           </span>
@@ -156,19 +156,21 @@
         <%= f.check_box :has_signup, :checked => @event[:has_signup] -%>
       </div>
     </div>
-    <div class="span2">
-      <div class='control-group'>
-        <%= f.label :invite_only -%>
-        <%= f.check_box :invite_only, {class: 'no-change'} -%>
+    <% if !@event.id.nil? %>
+      <div class="span2">
+        <div class='control-group'>
+          <%= f.label :invite_only -%>
+          <%= f.check_box :invite_only, {class: 'no-change'} -%>
+        </div>
+        <%= hidden_field_tag 'event_url_hidden' , refinery.events_event_path(@event)%>      
       </div>
-      <%= hidden_field_tag 'event_url_hidden' , refinery.events_event_path(@event)%>      
-    </div>
-    <div class="span6">
-      <div class="control-group">
-        <%= label_tag 'event_url' -%>
-        <%= text_field_tag 'event_url_text' , nil, {class: 'form-control', readonly: true} -%>
-      </div> 
-    </div>
+      <div class="span6">
+        <div class="control-group">
+          <%= label_tag 'event_url' -%>
+          <%= text_field_tag 'event_url_text' , nil, {class: 'form-control', readonly: true} -%>
+        </div> 
+      </div>
+    <% end %>
     <div class='span12 first control-group'>
       <%= f.label :event_category -%>
       <%= f.select(:event_category_id, @event_categories.collect {|d| [d.name, d.id] })%>

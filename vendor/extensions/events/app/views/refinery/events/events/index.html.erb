@@ -2,42 +2,40 @@
   <div id="events" class="container">
     <table class="table">
       <% @events.each do |event| %>
-        <% if !event.invite_only %>
-          <tr>
-            <td class="date">
-              <b><%= event.date.strftime('%^a') %></b><br/>
-              <%= event.date.strftime('%B %d') %>
+        <tr>
+          <td class="date">
+            <b><%= event.date.strftime('%^a') %></b><br/>
+            <%= event.date.strftime('%B %d') %>
 
-            </td>
-            <td class="info">
-              <%= link_to refinery.events_event_path(event) do %>
-                <h4>
-                  <%= raw event.title %>
-                </h4>
-              <% end %>
-              <b>When:</b> <%= event.date.strftime('%B %d, %Y at ') + event.time_start.strftime('%H:%M') %>
-            </td>
-            <% if event.has_signup -%>
-              <td class="actions">
-                <!-- If the event limit is null or zero there is not limit -->
-                <% if event.limit == nil or event.limit == 0 or event.attendees.size < event.limit %>
-                  <div class="button-group"> 
-                    <%= link_to refinery.new_events_attendee_path(event, :event_id => event.id), :class => 'btn btn-primary' do %>
-                      Sign up
-                      <% if !(event.limit.nil?) && event.limit > 0 %>
-                        <span class="badge">
-                          <%= get_availability(event) %> left
-                        </span> 
-                      <% end %>
-                    <% end %>
-                  </div>
-                <% else %>
-                  <span class='btn btn-danger disabled'>Full</span>
-                <% end %>
-              </td>
+          </td>
+          <td class="info">
+            <%= link_to refinery.events_event_path(event) do %>
+              <h4>
+                <%= raw event.title %>
+              </h4>
             <% end %>
-          </tr>
-        <% end %> 
+            <b>When:</b> <%= event.date.strftime('%B %d, %Y at ') + event.time_start.strftime('%H:%M') %>
+          </td>
+          <% if event.has_signup -%>
+            <td class="actions">
+              <!-- If the event limit is null or zero there is not limit -->
+              <% if event.limit == nil or event.limit == 0 or event.attendees.size < event.limit %>
+                <div class="button-group"> 
+                  <%= link_to refinery.new_events_attendee_path(event, :event_id => event.id), :class => 'btn btn-primary' do %>
+                    Sign up
+                    <% if !(event.limit.nil?) && event.limit > 0 %>
+                      <span class="badge">
+                        <%= get_availability(event) %> left
+                      </span> 
+                    <% end %>
+                  <% end %>
+                </div>
+              <% else %>
+                <span class='btn btn-danger disabled'>Full</span>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
       <% end %>    
     </table>
   </div>
