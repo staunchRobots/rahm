@@ -63,7 +63,9 @@ gem 'paper_trail', github: 'airblade/paper_trail', branch: 'master'
 
 gem 'refinerycms-events', path: 'vendor/extensions'
 
-gem 'iron_worker_ng', '~>1.5.0'
+gem 'rubyzip', '0.9.9'
+
+gem 'iron_worker_ng', '~> 1.5.0'
 
 # rest api calls
 gem 'httparty', '~> 0.13.1'
