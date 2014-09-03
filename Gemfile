@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.5'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 
@@ -63,7 +63,7 @@ gem 'paper_trail', github: 'airblade/paper_trail', branch: 'master'
 
 gem 'refinerycms-events', path: 'vendor/extensions'
 
-gem 'iron_worker_ng', '~>1.5.0'
+gem 'iron_worker_ng'
 
 # rest api calls
 gem 'httparty', '~> 0.13.1'
