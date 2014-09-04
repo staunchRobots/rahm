@@ -23,7 +23,7 @@ module Refinery
     protected
 
       def find_all_events
-        @events = Event.where('is_published = true and invite_only = false').order('position ASC')
+        @events = Event.where(is_published: true).where(invite_only: false).order('position ASC')
       end
 
       def find_page
