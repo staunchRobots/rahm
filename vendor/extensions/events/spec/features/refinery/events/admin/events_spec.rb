@@ -20,7 +20,7 @@ describe Refinery do
           end
         end
 
-        describe "create" do
+        describe "create", :js => true do
           before do
             visit refinery.events_admin_events_path
 
@@ -29,7 +29,10 @@ describe Refinery do
 
           context "valid data" do
             it "should succeed" do
-              fill_in "Title", :with => "This is a test of the first string field"
+              fill_in "Title",        :with => "This is a test of the first string field"
+              fill_in "Date",         :with => "2014-10-10"
+              fill_in "Publish Date", :with => "2014-10-10"
+              fill_in "Time Start",   :with => "10:10:10"
               click_button "Save"
 
               page.should have_content("'This is a test of the first string field' was successfully added.")
@@ -42,6 +45,9 @@ describe Refinery do
               click_button "Save"
 
               page.should have_content("Title can't be blank")
+              page.should have_content("Publish Date can't be blank")
+              page.should have_content("Date can't be blank")
+              page.should have_content("Time Start can't be blank")
               Refinery::Events::Event.count.should == 0
             end
           end

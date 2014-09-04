@@ -4,7 +4,11 @@ module Refinery
       self.table_name = 'refinery_events'
 
 
-      validates :title, :presence => true, :uniqueness => true
+      validates :title,         :presence => true, :uniqueness => true
+      validates :publish_date,  :presence => true
+      validates :date,          :presence => true
+      validates :time_start,    :presence => true
+
 
       belongs_to :poster, :class_name => '::Refinery::Image'
 

@@ -9,10 +9,36 @@ module Refinery
       subject { @event }
 
       it { should respond_to(:title) }
+      it { should respond_to(:date) }
+      it { should respond_to(:publish_date) }
+      it { should respond_to(:time_start) }
+      it { should respond_to(:event_category) }
+      it { should respond_to(:attendees) }
+
       it { should be_valid }
 
       describe "when title is not present" do
         before { @event.title = nil }
+        it { should_not be_valid }
+      end
+
+      describe "with blank title" do
+        before { @event.title = " " }
+        it { should_not be_valid }
+      end
+
+      describe "when date is not present" do
+        before { @event.date = " " }
+        it { should_not be_valid }
+      end
+
+      describe "when publish date is not present" do
+        before { @event.publish_date = " " }
+        it { should_not be_valid }
+      end
+
+      describe "when time start is not present" do
+        before { @event.time_start = " " }
         it { should_not be_valid }
       end
     
